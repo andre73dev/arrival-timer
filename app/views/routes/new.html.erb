@@ -1,0 +1,7 @@
+<%= form_for(@route) do |f| %>
+  <div class="field">
+    <%= f.text_area :origin, placeholder: "現在位置:東京駅等..." %>から
+    <%= f.text_area :destination, placeholder: "目的地:新宿駅等..." %>
+  </div>
+  <%= f.submit "へいく", class: "btn btn-primary" %>
+<% end %>

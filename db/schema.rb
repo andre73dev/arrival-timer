@@ -16,16 +16,16 @@ ActiveRecord::Schema.define(version: 20160612111925) do
   create_table "points", force: :cascade do |t|
     t.integer  "route_id"
     t.string   "name"
-    t.decimal  "start_lat"
-    t.decimal  "end_lat"
-    t.decimal  "start_lng"
-    t.decimal  "end_lng"
+    t.decimal  "start_lat",   precision: 11, scale: 8
+    t.decimal  "end_lat",     precision: 11, scale: 8
+    t.decimal  "start_lng",   precision: 11, scale: 8
+    t.decimal  "end_lng",     precision: 11, scale: 8
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "travel_time"
     t.string   "transration"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   add_index "points", ["route_id"], name: "index_points_on_route_id"
@@ -33,11 +33,16 @@ ActiveRecord::Schema.define(version: 20160612111925) do
   create_table "routes", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
+    t.string   "origin"
     t.string   "destination"
     t.string   "destination_link"
     t.datetime "total_time"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.decimal  "start_lat",        precision: 11, scale: 8
+    t.decimal  "end_lat",          precision: 11, scale: 8
+    t.decimal  "start_lng",        precision: 11, scale: 8
+    t.decimal  "end_lng",          precision: 11, scale: 8
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
 end

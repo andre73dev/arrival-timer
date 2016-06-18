@@ -3,10 +3,10 @@ class CreatePoints < ActiveRecord::Migration
     create_table :points do |t|
       t.references :route, index: true, foreign_key: true
       t.string :name
-      t.decimal :start_lat
-      t.decimal :end_lat
-      t.decimal :start_lng
-      t.decimal :end_lng
+      t.decimal :start_lat,  precision: 11, scale: 8
+      t.decimal :end_lat,  precision: 11, scale: 8
+      t.decimal :start_lng,  precision: 11, scale: 8
+      t.decimal :end_lng,  precision: 11, scale: 8
       t.decimal :start_time
       t.decimal :end_time
       t.datetime :start_time
